@@ -1,0 +1,9 @@
+list = [0,1,2,3,4,5,6,7,8,9,10]
+
+max = max(list)
+min = min(list)
+sum = sum(list)
+
+print("largest number is :", max)
+print("smallest number is :", min)
+print("sum of all list :", sum)
