@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>View Product Sub Category</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Image</th>
+        <th>Product Model</th>
+        <th>Product RAM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ product_sub_category.product_id }}</td>
+        <td>{{ product_sub_category.product_name }}</td>
+        <td>{{ product_sub_category.product_price }}</td>
+        <td><img src="{{ product_sub_category.product_image.url }}" alt="Product Image"></td>
+        <td>{{ product_sub_category.product_model }}</td>
+        <td>{{ product_sub_category.product_ram }}</td>
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

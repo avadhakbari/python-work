@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Product Sub Category Details</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Image</th>
+        <th>Product Model</th>
+        <th>Product RAM</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+        <tr>
+          <td>{{ product.product_id }}</td>
+          <td>{{ product.product_name }}</td>
+          <td>{{ product.product_price }}</td>
+          <td><img src="{{ product.product_image.url }}" alt="Product Image"></td>
+          <td>{{ product.product_model }}</td>
+          <td>{{ product.product_ram }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
