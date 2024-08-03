@@ -1,0 +1,101 @@
+{% extends "labor\dashboard_base.html" %}
+{% block title %}
+Task Payment account
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+
+<div class="row my-3">
+    <div class="col-lg-10"> 
+        <h1>Task Payment account</h1>
+    </div>
+    <div class="col-lg-2">
+        {% if task.task_remaining_amount != 0 %}
+        <button type="button" class="btn btn-dark w-100" data-bs-toggle="modal" data-bs-target="#taskPaymentModel">
+            Add payment
+        </button>
+        {% endif %}
+
+        <!-- Modal -->
+        <div class="modal fade" id="taskPaymentModel" tabindex="-1" aria-labelledby="taskPaymentModelLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="taskPaymentModelLabel">Add payment installment</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="proof">Proof(Screen-shot)</label>
+                                <input type="file" class="form-control" name="proof">
+                            </div>
+                            <div class="mb-3">
+                                <label for="date">Payment date</label>
+                                <input type="date" class="form-control" name="paid_date">
+                            </div>
+                            <div class="mb-3">
+                                <label for="amount">amount</label>
+                                <input type="text" class="form-control" name="amount" placeholder="₹ 1000">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-dark">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Party name</th>
+            <th scope="col">Total Payment</th>
+            <th scope="col">Paid Payment</th>
+            <th scope="col">Remaining Payment</th>
+            <th scope="col">Payment status</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{task.task_name|title}}</td>
+            <td>{{task.party_id.party_name}}</td>
+            <td>{{task.task_total_amount}}</td>
+            <td>{{task.task_paid_amount}}</td>
+            <td>{{task.task_remaining_amount}}</td>
+            <td>{{task.task_payment_status | title}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col" class="table-dark">ID</th>
+            <th scope="col" class="table-dark">Proof(SS)</th>
+            <th scope="col" class="table-dark">Paid date</th>
+            <th scope="col" class="table-dark">Installments</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entry in task_payments_entries %}
+        <tr>
+            <td>{{entry.task_payment_id}}</td>
+            <td><img src="{{entry.proof.url}}" alt="" width="100" height="60"></td>
+            <td>{{entry.payment_date}}</td>
+            <td>{{entry.payment_amount}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

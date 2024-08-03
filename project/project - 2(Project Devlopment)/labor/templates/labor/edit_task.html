@@ -1,0 +1,53 @@
+{% extends "labor\dashboard_base.html" %}
+{% block title %}
+edit-task
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+<div class="row d-flex justify-content-center mt-5">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+        <h1 class="lead">Edit Task - {{ task.party_id.party_name }}</h1>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="">Choose party</label>
+                <select class="form-select" name="task_party_id" aria-label="Default select example">
+                    <option selected disabled>Choose party</option>
+                    {% for party in parties %}
+                    <option value="{{ party.party_id }}"  {% if party.party_id == task.party_id.party_id %} selected {% endif %}>
+                        {{ party.party_name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="task_name">Task Name</label>
+                <input type="text" name="task_name" class="form-control" placeholder="Dimond work"
+                    value="{{ task.task_name }}">
+            </div>
+            <div class="mb-3">
+                <label for="description">Description</label>
+                <textarea name="task_description" class="form-control" id=""
+                    placeholder="Add something...">{{ task.task_description }}</textarea>
+            </div>
+            <div class="mb-3">
+                <label for="start_date">Start date</label>
+                <input type="date" name="task_start_date" class="form-control"
+                    value="{{ task.task_start_date|date:'Y-m-d' }}">
+            </div>
+            <div class="mb-3">
+                <label for="end_date">End date</label>
+                <input type="date" name="task_end_date" class="form-control"
+                    value="{{ task.task_end_date|date:'Y-m-d' }}">
+            </div>
+            <div class="mb-3">
+                <label for="total_amount">Total amount</label>
+                <input type="text" name="task_total_amount" class="form-control" placeholder="₹ 1000"
+                    value="{{ task.task_total_amount }}">
+            </div>
+            <button type="submit" class="btn btn-dark">Save Changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "labor\dashboard_base.html" %}
+{% block title %}
+Task details
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+<div class="justify-content-center">
+    <div class="card">
+        <div class="card-body">
+            <div class="justify-content-center">
+                <h1 class="lead">Tasks Details</h1>
+                <table class="table">
+                    <tr>
+                        <th class="table-dark">party_id</th>
+                        <th class="table-dark">party_name</th>
+                        <th class="table-dark">Description</th>
+                        <th class="table-dark">start_date</th>
+                        <th class="table-dark">end_date</th>
+                        <th class="table-dark">task_status</th>
+                        <th class="table-dark">Payment</th>
+                        <th class="table-dark">Action</th>
+                        
+                    </tr>
+                    {% for task in tasks %}
+                    <tr>
+                        <td>{{task.party_id}}</td>
+                        <td>{{task.party_id.party_name}}</td>
+                        <td>{{task.task_description}}</td>
+                        <td>{{task.task_start_date}}</td>
+                        <td>{{task.task_end_date}}</td>
+                        <td>{{task.task_status}}</td>
+                        <td>{{task.task_total_amount}}</td>
+                        
+                        
+                        <td>
+                            <a href="{% url 'task_details' task_id=task.task_id %}" class="btn btn-dark"><i class="bi bi-eye"></i></a>
+                            
+                            <a href="{% url 'task_payments' task_id=task.task_id %}"  class="btn {% if task.task_payment_status == 'done'%} btn-success {%elif task.task_payment_status == 'partial' %} btn-warning {% else %} btn-danger{% endif %} "><i class="bi bi-currency-rupee"></i></a>
+                            <a href="{% url 'task_edit' task_id=task.task_id %}" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>
+                            <a href="{% url 'task_delete' task_id=task.task_id %}"
+                                class="btn btn-dark"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}q

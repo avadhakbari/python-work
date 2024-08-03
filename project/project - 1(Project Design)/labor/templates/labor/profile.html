@@ -1,0 +1,52 @@
+{% extends "labor\dashboard_base.html" %}
+{% block title %}
+Profile
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="span3 well ">
+        <center>
+        <a href="#aboutModal" data-toggle="modal" data-target="#myModal"><img src="{{labor_profile.profile.url}}" name="aboutme" width="140" height="140" class="my-" style="border-radius: 50%;"></a>
+        <h3>{{request.session.labor_id}}</h3>
+		</center>
+    </div>
+    <div class="row d-flex justify-content-center mt-3">
+        <div class="col-lg-6">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-12 mb-3">
+                        <label for="profile">Upload profile</label>
+                        <input type="file" class="form-control" name="profile" >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <input type="text" name="fname" class="form-control" placeholder="Firstname" value="{{labor_profile.first_name}}">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <input type="text" name="lname" class="form-control" placeholder="Lastname" value="{{labor_profile.last_name}}">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <input type="text" name="labor_email" class="form-control" placeholder="Email" value="{{labor_infos.email}}" disabled>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="mobile" class="form-control" placeholder="Phone" value="{{labor_infos.mobile}}">
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-dark">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

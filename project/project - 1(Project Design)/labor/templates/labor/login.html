@@ -1,0 +1,65 @@
+{% extends "labor\auth_base.html" %}
+
+{% block title %}
+Login
+{% endblock  %}
+
+{% block style %}
+{% endblock  %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height:100vh">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+
+                        <img src="https://media.licdn.com/dms/image/C4D05AQFoyd_PaAJhVA/feedshare-thumbnail_720_1280/0/1616679249112?e=2147483647&v=beta&t=ObGThuDPb-ytWTbCrkC16Iiqomozo3nGiATBo1ixQiI"
+                            alt="" height="70px" class="mb-2">
+                    </div>
+                    <h3 class="form-signin-heading text-center mb-2">Labor Login</h3>
+                    <hr class="colorgraph mb-3"><br>
+
+                    <!-- start message section -->
+                    {% if messages %}
+                    <!-- <div class="container-fluid"> -->
+                        {% for message in messages %}
+                        <div class="alert alert-dismissible fade show {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'warning' %}alert-warning{% elif message.tags == 'success' %}alert-success{% elif message.tags == 'info' %}alert-info{% endif %}"
+                            role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    <!-- </div> -->
+                    {% endif %}
+                    <!-- end message section -->
+                    
+                    <form action="" method="post" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <label for="labor_id-id" class="form-label"><i class="bi bi-person-badge"></i> Labor
+                                ID</label>
+                            <input type="text" id="labor_id-id" class="form-control" name="labor_id"
+                                placeholder="WBL000...">
+                        </div>
+                        <div class="form-group  mb-3">
+                            <label for="password" class="form-label"><i class="bi bi-key"></i> Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="********">
+                        </div>
+                        <button type="submit" id="sendlogin" class="btn btn-primary">login</button>
+                    </form>
+
+
+                    <div class="d-flex justify-content-between my-3">
+                        <a href="{% url 'register_view' %}">New labor?</a>
+                        <a href="{% url 'forgot_pass_email' %}">Forgate Password?</a>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock  %} 

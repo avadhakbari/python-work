@@ -1,0 +1,78 @@
+{% extends "labor\dashboard_base.html" %}
+{% block title %}
+Parties
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+<div class="row mt-5">
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="card-body"> 
+                <div class="justify-content-center">
+                    <h1 class="lead"><i>Add Party</i></h1><hr>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <input type="hidden" name="labor_id" class="form-control" value="{{request.session.labor_id}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="party name">Party Name :</label>
+                            <input type="text" name="party_name" class="form-control" placeholder="Enter Party Name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="party_email">Party Email:</label>
+                            <input type="email" name="party_email" class="form-control" placeholder="Enter Party Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="party_contact">Party Contact:</label>
+                            <input type="text" name="party_mobile" class="form-control" placeholder="Enter Party Contact">
+                        </div>
+                        <div class="mb-3">
+                            <label for="party_address">Party Address:</label>
+                            <input type="text" name="party_address" class="form-control" placeholder="Enter Party Address">
+                        </div>
+                        <button type="submit" class="btn btn-dark">Add Party</button>
+                    </form>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="card">
+            <div class="card-body">
+                <div class="justify-content-center">
+                    <h1 class="lead"><i>Parties Details</i></h1><hr> 
+                    <table class="table">
+                        <tr>
+                            <th class="table-dark">Party Name</th>
+                            <th class="table-dark">Party Email</th>
+                            <th class="table-dark">Party Contact</th>
+                            <th class="table-dark">Party Address</th>
+                            <th class="table-dark">Action</th>
+                        </tr>
+                        {% for party in parties %}
+                        <tr>
+                            <td>{{party.party_name}}</td>
+                            <td>{{party.party_email}}</td>
+                            <td>{{party.party_mobile}}</td>
+                            <td>{{party.party_address}}</td>
+                            <td>
+                                <a href="{% url 'edit_party' party_id=party.party_id %}" class="btn btn-dark">Edit</a>
+                                <a href="{% url 'delete_party' party_id=party.party_id %}" class="btn btn-dark">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+
+n

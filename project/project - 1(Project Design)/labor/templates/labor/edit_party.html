@@ -1,0 +1,35 @@
+{% extends "labor\dashboard_base.html" %}
+{% block title %}
+Profile
+{% endblock %}
+{% block style %}
+{% endblock %}
+{% block content %}
+<div class="row d-flex justify-content-center mt-5">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+
+<form action="" method="post">
+    <h1 class="lead">Edit party</h1>
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <label for="party name">Party Name :</label>
+        <input type="text" name="party_name" class="form-control" value="{{party.party_name}}">
+    </div>
+    <div class="mb-3">
+        <label for="party_email">Party Email:</label>
+        <input type="email" name="party_email" class="form-control" value="{{party.party_email}}" >
+    </div>
+    <div class="mb-3">
+        <label for="party_contact">Party Contact:</label>
+        <input type="text" name="party_mobile" class="form-control" value="{{party.party_mobile}}" >
+    </div>
+    <div class="mb-3">
+        <label for="party_address">Party Address:</label>
+        <input type="text" name="party_address" class="form-control" value="{{party.party_address}}" >
+    </div>
+    <button type="submit" class="btn btn-dark">Save Changes</button>
+</form>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "labor\auth_base.html" %}
+
+{% block title %}
+otp-verification
+{% endblock  %}
+
+{% block style %}
+{% endblock  %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height:100vh">
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-center">
+
+                        <img src="https://media.licdn.com/dms/image/C4D05AQFoyd_PaAJhVA/feedshare-thumbnail_720_1280/0/1616679249112?e=2147483647&v=beta&t=ObGThuDPb-ytWTbCrkC16Iiqomozo3nGiATBo1ixQiI"
+                            alt="" height="70px" class="mb-2">
+                    </div>
+                    <h3 class="form-signin-heading text-center mb-2">OTP verification</h3>
+                    <hr class="colorgraph mb-3"><br>
+
+                    <!-- start message section -->
+                    {% if messages %}
+                    <!-- <div class="container-fluid"> -->
+                        {% for message in messages %}
+                        <div class="alert alert-dismissible fade show {% if message.tags == 'error' %}alert-danger{% elif message.tags == 'warning' %}alert-warning{% elif message.tags == 'success' %}alert-success{% elif message.tags == 'info' %}alert-info{% endif %}"
+                            role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    <!-- </div> -->
+                    {% endif %}
+                    <!-- end message section -->
+                    
+                    <form action="{% url 'otp_varification_view' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group  mb-3">
+                            <input type="hidden" class="form-control" name="email" value="{{labor_email}}" >
+                        </div>
+                        <div class="form-group  mb-3">
+                            <label for="otp" class="form-label"><i class="bi bi-phone"></i>OTP</label>
+                            <input type="text" class="form-control" name="otp" placeholder="XXXXXX">
+                        </div>
+                        <button type="submit" id="sendlogin" class="btn btn-primary">Verify</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock  %}
