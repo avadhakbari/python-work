@@ -1,0 +1,110 @@
+1]• What are the benefits of using CSS?
+~   Advantages of CSS
+	Better Website Speed. For a website to function efficiently, it should have a faster load time. ...
+	Easier to Maintain. CSS is easy to maintain due to less maintenance time. ...
+	Consistent Design. ...
+	Time-Saving. ...
+	Better Device Compatibility. ...
+	Positioning of Design Elements.
+
+2]• What are the disadvantages of CSS?
+~   Disadvantages of CSS
+	Browser Compatibility. CSS may render differently in various web browsers, leading to inconsistencies in the visual presentation. ...
+	Learning Curve. ...
+	Lack of Security. ...
+	Limited Layout Control. ...
+	Performance Impact. ...
+	Overriding Styles. ...
+	Maintenance Challenges.
+
+3]• What is the difference between CSS2 and CSS3?
+~  The biggest difference between CSS2 and CSS3 is that CSS3 has been split into different sections, called modules. Each of these modules is making its way through the W3C in various 
+   stages of the recommendation process.
+
+4]• Name a few CSS style components
+~  Selectors:
+	Element Selector (h1 {})
+	Class Selector (.classname {})
+	ID Selector (#idname {})
+	Attribute Selector ([type="text"] {})
+	Pseudo-class Selector (a:hover {})
+	Pseudo-element Selector (p::first-line {})
+   Box Model:
+	Content
+	Padding
+	Border
+	Margin
+   Grid Layout:
+	display: grid;
+	grid-template-columns
+	grid-template-rows
+	grid-gap
+	grid-area
+
+5]• What do you understand by CSS opacity?
+~  The opacity CSS property sets the opacity of an element. Opacity is the degree to which content behind an element is hidden, and is the opposite of transparency.
+
+6]• How can the background color of an element be changed?
+~  Use the CSS background-color property to add a background colour to HTML. Put it into a style attribute and change the value to the desired colour name or code. Then include this
+   style attribute in an HTML element, such as a heading, span tag, table, or div.
+
+7]• How can image repetition of the backup be controlled?
+~  This task can be achieved by using the background-repeat property that will help us to control the repetition of the image. The background-repeat property in CSS is used to repeat
+   the background image both horizontally and vertically. It also decides whether the background image will be repeated or not.
+
+8]• What is the use of the background-position property?
+~  The background-position property in CSS allows you to move a background image (or gradient) around within its container. It has three different types of values: Length values 
+   (e.g. 100px 5px ) Percentages (e.g. 100% 5% )
+
+9]• Which property controls the image scroll in the background?
+~  background-attachment property
+	The background-attachment property sets whether a background image scrolls with the rest of the page, or is fixed.
+
+10]• Why should background and color be used as separate properties?
+~  While background and colour are often used together for elements, they serve different purposes. "Colour" sets the text colour, while "background" defines the background colour 
+   or image. Separating them allows for more flexibility in styling, as background properties can include images, gradients, and positioning.
+
+11]• How to center block elements using CSS1?
+~  To centrally align the block elements, we can simply make use of the <center> tag. All the elements within the <center> tag will be centrally aligned.
+
+12]• How to maintain the CSS specifications?
+~  The CSS specifications are maintained by the World Wide Web Consortium (W3C). Even though every browser supports CSS, there are many inconsistencies in the supported specification 
+   version. Some browsers even have their own implementation of the specification and have proprietary (vendor) prefixes.
+
+13]• What are the ways to integrate CSS as a web page?
+~  There are three primary methods to use CSS into your HTML documents: external, internal, and inline. Each method has its advantages and best-use scenarios. This guide will explore these
+   methods in detail, helping you choose the best approach for your web development needs.
+
+14]• What is embedded style sheets?
+~  An embedded style sheet is declared within the <head> element of an XHTML document. It applies to the whole document, rather than just one element. Each style declaration (or CSS rule)
+   gets applied to everything in the document that matches that rule.
+
+15]• What are the external style sheets?
+~  An external style sheet is a separate CSS file that can be accessed by creating a link within the head section of the webpage. Multiple webpages can use the same link to access the 
+   stylesheet. The link to an external style sheet is placed within the head section of the page.
+
+16]• What are the advantages and disadvantages of using external style sheets?
+~  Advantages of External CSS:
+        Improved Maintainability and Code Organization: By using an external style sheet, you can centralize your styles in a separate file. This makes it easier to manage and update
+        styles
+        across multiple pages.
+	Enhanced Reusability: You can apply the same .css file to multiple HTML pages, promoting consistency and reducing redundancy.
+	Efficient Caching and Faster Page Load Times: Browsers can cache external style sheets, resulting in quicker loading for subsequent visits to your site.
+   Disadvantages of External CSS:
+	Rendering Delay: Pages may not render correctly until the external CSS file is loaded. If the file takes time to load, users might briefly see unstyled content.
+
+17]• What is the meaning of the CSS selector?
+~  CSS selectors are used to "find" (or select) the HTML elements you want to style. We can divide CSS selectors into five categories: Simple selectors (select elements based on name, id,
+   class) Combinator selectors (select elements based on a specific relationship between them)
+
+18]• What are the media types allowed by CSS?
+~  CSS 2.1 defines the following media groups:
+	continuous or paged.
+	visual, audio, speech, or tactile.
+	grid (for character grid devices), or bitmap.
+	interactive (for devices that allow user interaction), or static (for those that do not).
+	all (includes all media types)
+
+19]• What is the rule set?
+~  A rule set is a collection of one or many rules that are executed together as a single unit against a specific set of records (either from one source or a set of conjoined sources) 
+   and generate several levels of statistics.
